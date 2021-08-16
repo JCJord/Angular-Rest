@@ -5,4 +5,8 @@ mat-form-field {
 .output-data-card {
   margin-top: 20px;
 }
+
+.submit-button {
+  margin-top: 10px;
+}
 /*# sourceMappingURL=post-create.component.css.map */

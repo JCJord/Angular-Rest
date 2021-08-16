@@ -7,3 +7,7 @@ mat-form-field {
 .output-data-card {
   @include card-space(20px);
 }
+
+.submit-button {
+  margin-top: 10px;
+}
