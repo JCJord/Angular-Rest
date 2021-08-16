@@ -1,0 +1,17 @@
+<div class="panel-container">
+  <mat-accordion multi="true" *ngIf="posts.length > 0">
+    <mat-expansion-panel
+      *ngFor="let post of posts"
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ post.title }} </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>{{ post.content }}</p>
+    </mat-expansion-panel></mat-accordion
+  >
+  <div class="empty-msg" *ngIf="posts.length == 0">
+    <h3>Your post's box is empty</h3>
+  </div>
+</div>

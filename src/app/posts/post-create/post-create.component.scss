@@ -1,0 +1,9 @@
+mat-form-field {
+  width: 100%;
+}
+@mixin card-space($pixel) {
+  margin-top: $pixel;
+}
+.output-data-card {
+  @include card-space(20px);
+}

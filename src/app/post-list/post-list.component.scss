@@ -1,0 +1,13 @@
+@mixin card-space($top, $bottom) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+.panel-container {
+  @include card-space(20px, 20px);
+  margin-bottom: 20px;
+}
+
+.empty-msg {
+  text-align: center;
+}

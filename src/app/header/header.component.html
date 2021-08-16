@@ -1,0 +1,25 @@
+<mat-toolbar class="toolbar">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="toggleMenu()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="example-spacer"></span>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<div id="mySidenav" [ngClass]="status ? 'openNav' : 'closeNav'" class="sidenav">
+  <mat-icon><a (click)="toggleMenu()" class="closebtn">arrow_back</a></mat-icon>
+  <a href="#">About</a>
+  <mat-divider></mat-divider>
+  <a href="#">Services</a>
+  <mat-divider></mat-divider>
+  <a href="#">Clients</a>
+  <mat-divider></mat-divider>
+  <a href="#">Contact</a>
+  <mat-divider></mat-divider>
+</div>
