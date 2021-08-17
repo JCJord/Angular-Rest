@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component'
 import { PostList } from './post-list/post-list.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+
 @NgModule({
   declarations: [AppComponent, PostCreateComponent, HeaderComponent, PostList],
   imports: [
