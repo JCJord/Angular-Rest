@@ -7,4 +7,16 @@
 .empty-msg {
   text-align: center;
 }
+
+mat-spinner {
+  margin: 0 auto !important;
+}
+
+.post-image {
+  width: 80%;
+}
+
+.post-image img {
+  max-width: 400px;
+}
 /*# sourceMappingURL=post-list.component.css.map */

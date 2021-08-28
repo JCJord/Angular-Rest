@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
 
 import { MaterialModule } from './app.material.module'
@@ -9,16 +9,17 @@ import { PostCreateComponent } from './posts/post-create/post-create.component'
 import { HeaderComponent } from './header/header.component'
 import { PostList } from './post-list/post-list.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [AppComponent, PostCreateComponent, HeaderComponent, PostList],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

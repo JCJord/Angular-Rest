@@ -11,3 +11,20 @@ mat-form-field {
 .submit-button {
   margin-top: 10px;
 }
+
+mat-spinner {
+  margin: 0 auto !important;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  height: 100%;
+}
