@@ -1,4 +1,6 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast'
 import { Component, OnDestroy, OnInit } from '@angular/core'
+import { PageEvent } from '@angular/material/paginator'
 import { Subscription } from 'rxjs'
 import { Post } from '../posts/post.model'
 import { PostsService } from '../posts/posts.services'
@@ -11,35 +13,33 @@ import { PostsService } from '../posts/posts.services'
 export class PostList implements OnInit, OnDestroy {
   panelOpenState = false
   isLoading = false
-  // posts = [
-  //   {
-  //     title: 'First Post',
-  //     content: 'This is the post content 1st'
-  //   },
-  //   {
-  //     title: 'Second Post',
-  //     content: 'This is the post content 2nd '
-  //   },
-  //   {
-  //     title: 'Third Post',
-  //     content: 'This is the post content 3rd'
-  //   }
-  // ]
 
   posts: Post[] = []
+  totalPosts = 0
+  postsPerPage = 2
+  currentPage = 1
+  pageSizeOptions = [1, 2, 5, 10]
   private postsSub!: Subscription
 
   constructor (public postsService: PostsService) {}
 
   ngOnInit () {
     this.isLoading = true
-    this.postsService.getPosts()
+    this.postsService.getPosts(this.postsPerPage, 1)
     this.postsSub = this.postsService
       .getPostUpdateListener()
-      .subscribe((posts: Post[]) => {
-        this.posts = posts
+      .subscribe((postData: { posts: Post[]; postCount: number }) => {
         this.isLoading = false
+        this.totalPosts = postData.postCount
+        this.posts = postData.posts
       })
+  }
+
+  onChangedPage (pageData: PageEvent) {
+    this.isLoading = true
+    this.currentPage = pageData.pageIndex + 1
+    this.postsPerPage = pageData.pageSize
+    this.postsService.getPosts(this.postsPerPage, this.currentPage)
   }
 
   ngOnDestroy () {
@@ -47,6 +47,9 @@ export class PostList implements OnInit, OnDestroy {
   }
 
   onDelete (postId: string) {
-    this.postsService.deletePost(postId)
+    this.isLoading = true
+    this.postsService.deletePost(postId).subscribe(() => {
+      this.postsService.getPosts(this.postsPerPage, this.currentPage)
+    })
   }
 }

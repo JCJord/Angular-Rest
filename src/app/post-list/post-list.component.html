@@ -27,3 +27,12 @@
     <h3>Your post's box is empty</h3>
   </div>
 </div>
+
+<div class="paginator" *ngIf="posts.length > 0">
+  <mat-paginator
+    [length]="totalPosts"
+    [pageSize]="postsPerPage"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="onChangedPage($event)"
+  ></mat-paginator>
+</div>

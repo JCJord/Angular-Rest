@@ -8,6 +8,7 @@ import { AppComponent } from './app.component'
 import { PostCreateComponent } from './posts/post-create/post-create.component'
 import { HeaderComponent } from './header/header.component'
 import { PostList } from './post-list/post-list.component'
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http'
 

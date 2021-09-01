@@ -43,12 +43,26 @@ router.post("", multer({ storage: storage }).single("image"), (req, res) => {
   });
 });
 
-router.get("", async (req, res) => {
+router.get("", (req, res) => {
   try {
-    let documents = await Post.find();
-    res.status(200).json({
-      posts: documents,
-    });
+    const pageSize = +req.query.pagesize;
+    const currentPage = +req.query.page;
+    const postQuery = Post.find();
+    let fetchedPosts;
+    if (pageSize && currentPage) {
+      postQuery.skip(pageSize * (currentPage + 1)).limit(pageSize);
+    }
+    postQuery
+      .then((documents) => {
+        fetchedPosts = documents;
+        return Post.count();
+      })
+      .then((count) => {
+        res.status(200).json({
+          posts: fetchedPosts,
+          maxPosts: count,
+        });
+      });
   } catch (err) {
     console.log(err);
   }
