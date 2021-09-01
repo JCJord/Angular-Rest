@@ -50,7 +50,7 @@ router.get("", (req, res) => {
     const postQuery = Post.find();
     let fetchedPosts;
     if (pageSize && currentPage) {
-      postQuery.skip(pageSize * (currentPage + 1)).limit(pageSize);
+      postQuery.skip(pageSize * (currentPage - 1)).limit(pageSize);
     }
     postQuery
       .then((documents) => {
