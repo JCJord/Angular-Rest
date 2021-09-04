@@ -10,6 +10,7 @@ import { MatDividerModule } from '@angular/material/divider'
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatGridListModule } from '@angular/material/grid-list'
 
 @NgModule({
   exports: [
@@ -23,7 +24,8 @@ import { MatPaginatorModule } from '@angular/material/paginator'
     MatDividerModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule {}

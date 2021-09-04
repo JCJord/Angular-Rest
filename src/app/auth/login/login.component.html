@@ -1,0 +1,33 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<div class="form-container">
+  <div class="first-column">
+    <h1>Welcome back, user</h1>
+    <p>We are the champions</p>
+  </div>
+
+  <div class="second-column">
+    <mat-card *ngIf="!isLoading">
+      <form>
+        <mat-form-field>
+          <input matInput type="email" placeholder="E-mail" />
+          <mat-error *ngIf="">Please enter a post title</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="password" matInput placeholder="Password" />
+          <mat-error *ngIf="">Please enter a valid password</mat-error>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          class="submit-button"
+        >
+          Login
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</div>

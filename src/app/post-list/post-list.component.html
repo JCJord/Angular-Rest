@@ -1,38 +1,40 @@
-<h1>Your Post's</h1>
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-<div class="panel-container" *ngIf="!isLoading">
-  <mat-accordion multi="true" *ngIf="posts.length > 0">
-    <mat-expansion-panel
-      *ngFor="let post of posts"
-      (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false"
+<div class="container">
+  <h1>Your Post's</h1>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div class="panel-container" *ngIf="!isLoading">
+    <mat-accordion multi="true" *ngIf="posts.length > 0">
+      <mat-expansion-panel
+        *ngFor="let post of posts"
+        (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ post.title }} </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="post-image">
+          <img [src]="post.imagePath" [alt]="post.title" />
+        </div>
+        <p>{{ post.content }}</p>
+        ID:{{ post.id }}
+        <mat-action-row
+          ><a mat-button color="warn" [routerLink]="['/edit', post.id]">EDIT</a>
+          <button mat-button color="primary" (click)="onDelete(post.id)">
+            DELETE
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel></mat-accordion
     >
-      <mat-expansion-panel-header>
-        <mat-panel-title> {{ post.title }} </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="post-image">
-        <img [src]="post.imagePath" [alt]="post.title" />
-      </div>
-      <p>{{ post.content }}</p>
-      ID:{{ post.id }}
-      <mat-action-row
-        ><a mat-button color="warn" [routerLink]="['/edit', post.id]">EDIT</a>
-        <button mat-button color="primary" (click)="onDelete(post.id)">
-          DELETE
-        </button>
-      </mat-action-row>
-    </mat-expansion-panel></mat-accordion
-  >
-  <div class="empty-msg" *ngIf="posts.length == 0">
-    <h3>Your post's box is empty</h3>
+    <div class="empty-msg" *ngIf="posts.length == 0">
+      <h3>Your post's box is empty</h3>
+    </div>
   </div>
-</div>
 
-<div class="paginator" *ngIf="posts.length > 0">
-  <mat-paginator
-    [length]="totalPosts"
-    [pageSize]="postsPerPage"
-    [pageSizeOptions]="pageSizeOptions"
-    (page)="onChangedPage($event)"
-  ></mat-paginator>
+  <div class="paginator" *ngIf="posts.length > 0">
+    <mat-paginator
+      [length]="totalPosts"
+      [pageSize]="postsPerPage"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onChangedPage($event)"
+    ></mat-paginator>
+  </div>
 </div>

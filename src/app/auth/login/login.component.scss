@@ -1,0 +1,35 @@
+mat-form-field {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: 0 auto;
+}
+
+mat-card {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.title-login {
+  margin: auto;
+}
+
+.form-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  border: dotted;
+  display: flex;
+}
+
+.first-column,
+.second-column {
+  border: dotted;
+  flex: 1 1;
+}
+
+.first-column {
+  background-color: purple !important;
+  color: #fff;
+}
