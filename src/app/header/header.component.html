@@ -1,4 +1,4 @@
-<mat-toolbar class="toolbar">
+<mat-toolbar class="toolbar" *ngIf="this.router.url != '/login'">
   <button
     mat-icon-button
     class="example-icon"
@@ -13,7 +13,10 @@
   <span class="example-spacer"></span>
 </mat-toolbar>
 <div id="mySidenav" [ngClass]="status ? 'openNav' : 'closeNav'" class="sidenav">
-  <mat-icon><a (click)="toggleMenu()" class="closebtn">arrow_back</a></mat-icon>
+  <mat-icon>
+    <a (click)="toggleMenu()" class="closebtn">arrow_back</a></mat-icon
+  >
+  <mat-divider></mat-divider>
   <a routerLink="/create" (click)="toggleMenu()">Create</a>
   <mat-divider></mat-divider>
   <a routerLink="/" (click)="toggleMenu()">Posts</a>

@@ -2,32 +2,45 @@
 
 <div class="form-container">
   <div class="first-column">
-    <h1>Welcome back, user</h1>
-    <p>We are the champions</p>
+    <div class="content-col-1"></div>
   </div>
 
   <div class="second-column">
-    <mat-card *ngIf="!isLoading">
-      <form>
-        <mat-form-field>
-          <input matInput type="email" placeholder="E-mail" />
-          <mat-error *ngIf="">Please enter a post title</mat-error>
-        </mat-form-field>
+    <div class="content-col-2">
+      <div class="form-title">
+        <h2>Account Login</h2>
+      </div>
+      <mat-card *ngIf="!isLoading">
+        <div class="logo-brand">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg"
+            alt=""
+          />
+        </div>
+        <form>
+          <mat-form-field>
+            <input matInput type="email" placeholder="E-mail" />
+            <mat-error *ngIf="">Please enter a post title</mat-error>
+          </mat-form-field>
 
-        <mat-form-field>
-          <input type="password" matInput placeholder="Password" />
-          <mat-error *ngIf="">Please enter a valid password</mat-error>
-        </mat-form-field>
+          <mat-form-field>
+            <input type="password" matInput placeholder="Password" />
+            <mat-error *ngIf="">Please enter a valid password</mat-error>
+          </mat-form-field>
 
-        <button
-          mat-raised-button
-          color="accent"
-          type="submit"
-          class="submit-button"
-        >
-          Login
-        </button>
-      </form>
-    </mat-card>
+          <div class="forgot-pass">
+            <a href="">Don't have an account?</a>
+          </div>
+          <button
+            mat-flat-button
+            color="warn"
+            type="submit"
+            class="form-button"
+          >
+            Login
+          </button>
+        </form>
+      </mat-card>
+    </div>
   </div>
 </div>

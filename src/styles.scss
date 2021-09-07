@@ -8,6 +8,10 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
+@font-face {
+  src: url(app/fonts/NHaasGroteskTXPro-65Md.ttf);
+  font-family: nas;
+}
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
@@ -38,11 +42,17 @@ $mean-app-theme: mat.define-light-theme(
 
 html,
 body {
+  font-family: nas;
+}
+.form-button {
+  background-color: rgb(36, 36, 36) !important;
+  border-radius: 0px !important;
+  width: 150px;
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: rgb(233, 233, 233);
+
+  background-color: rgb(255, 255, 255);
 }
 
 .container {

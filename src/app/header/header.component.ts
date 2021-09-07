@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core'
 })
 export class HeaderComponent {
   status = false
-
+  constructor (public router: Router) {}
   toggleMenu () {
     this.status = !this.status
   }

@@ -7,8 +7,12 @@ mat-spinner {
 }
 
 mat-card {
-  width: 90%;
+  width: 60%;
   margin: 0 auto;
+  border: 1px solid #d1d1d1;
+  border-radius: 0px;
+  max-width: 570px;
+  padding: 30px;
 }
 
 .title-login {
@@ -19,7 +23,7 @@ mat-card {
   width: 100%;
   height: 100%;
   position: fixed;
-  border: dotted;
+  overflow: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,14 +31,74 @@ mat-card {
 
 .first-column,
 .second-column {
-  border: dotted;
   -webkit-box-flex: 1;
       -ms-flex: 1 1;
           flex: 1 1;
 }
 
 .first-column {
-  background-color: purple !important;
+  background-image: url(https://images.unsplash.com/photo-1558655146-6c222b05fce4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80);
+  background-size: cover;
+  /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
   color: #fff;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.content-col-1 {
+  padding: 0;
+  width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+
+.content-col-2 {
+  width: 100%;
+  padding-top: 70px;
+  margin: 0 auto;
+}
+
+.forgot-pass {
+  text-align: right;
+  padding-bottom: 13px !important;
+}
+
+.forgot-pass a {
+  text-decoration: none;
+  color: #4141d8;
+}
+
+.form-title {
+  margin: 0 auto;
+  width: 61%;
+  max-width: 570px;
+}
+
+.logo-brand {
+  text-align: center;
+}
+
+.logo-brand img {
+  margin: 0 auto !important;
+  width: 50px;
+}
+
+@media only screen and (max-width: 875px) {
+  .first-column {
+    display: none;
+  }
+  .content-col-2 {
+    padding: 0px 0;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .content-col-2 {
+    padding: 0px 0;
+  }
 }
 /*# sourceMappingURL=login.component.css.map */
