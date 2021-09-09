@@ -16,7 +16,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: white;
+  background-color: #337be6;
   overflow-x: hidden;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -28,33 +28,37 @@
 }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 5px 8px 8px 10px;
   text-decoration: none;
-  font-size: 25px;
-  color: #000000;
+  font-weight: 0;
+  font-size: 16px;
+  color: #ffffff;
   display: block;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.sidenav a:last-child:hover {
-  background-color: white;
-  color: #9b9b9b;
-}
-
 .sidenav a:hover {
   color: #ffffff;
-  background-color: #3a3a3a;
+  background-color: #6ba1f1;
 }
 
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
-  font-size: 33px;
-  margin-left: 50px;
+  right: 10px;
+  font-size: 27px;
   cursor: pointer;
-  color: #000000;
+  color: #ffffff;
+  border-radius: 35px;
+  width: 19px;
+  height: 23px;
+}
+
+.closebtn mat-icon {
+  position: absolute;
+  padding: 0;
+  right: 6px;
 }
 
 .openNav {
@@ -63,6 +67,24 @@
 
 .closeNav {
   width: 0px;
+}
+
+mat-icon {
+  padding-right: 10px;
+}
+
+.header-btn {
+  background-color: transparent;
+  color: #ffff;
+  padding: 0px 10px;
+}
+
+.logo-box {
+  position: absolute;
+  right: 50px;
+  left: 50px;
+  top: 0;
+  margin: 0 auto;
 }
 
 @media screen and (max-height: 450px) {

@@ -9,6 +9,7 @@ import { PostCreateComponent } from './posts/post-create/post-create.component'
 import { HeaderComponent } from './header/header.component'
 import { PostList } from './post-list/post-list.component'
 import { LoginComponent } from './auth/login/login.component'
+import { SignUpComponent } from './auth/signup/signup.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http'
 
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http'
     PostCreateComponent,
     HeaderComponent,
     PostList,
-    LoginComponent
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

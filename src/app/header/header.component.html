@@ -11,18 +11,28 @@
   <span class="example-spacer"></span>
   <span>My App</span>
   <span class="example-spacer"></span>
+  <button mat-flat-button class="header-btn">
+    <mat-icon>login</mat-icon> SIGN IN
+  </button>
 </mat-toolbar>
 <div id="mySidenav" [ngClass]="status ? 'openNav' : 'closeNav'" class="sidenav">
-  <mat-icon>
-    <a (click)="toggleMenu()" class="closebtn">arrow_back</a></mat-icon
+  <a (click)="toggleMenu()" class="closebtn"
+    ><mat-icon>arrow_back</mat-icon>
+  </a>
+
+  <a routerLink="/create" (click)="toggleMenu()"
+    ><mat-icon>add_circle_outline</mat-icon>Create</a
   >
-  <mat-divider></mat-divider>
-  <a routerLink="/create" (click)="toggleMenu()">Create</a>
-  <mat-divider></mat-divider>
-  <a routerLink="/" (click)="toggleMenu()">Posts</a>
-  <mat-divider></mat-divider>
-  <a routerLink="/login" (click)="toggleMenu()">Sign up</a>
-  <mat-divider></mat-divider>
-  <a routerLink="/login" (click)="toggleMenu()">Sign in</a>
-  <mat-divider></mat-divider>
+
+  <a routerLink="/" (click)="toggleMenu()"
+    ><mat-icon>post_add</mat-icon>Posts</a
+  >
+
+  <a routerLink="/signup" (click)="toggleMenu()"
+    ><mat-icon>app_registration</mat-icon>Sign up</a
+  >
+
+  <a routerLink="/login" (click)="toggleMenu()"
+    ><mat-icon>login</mat-icon>Sign in</a
+  >
 </div>
