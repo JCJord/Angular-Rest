@@ -1,3 +1,66 @@
-<div class="container">
-  <h1>This is the register Form component</h1>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<div class="form-container">
+  <div class="second-column">
+    <div class="content-col-2">
+      <div class="form-title">
+        <h2>Register now</h2>
+      </div>
+      <mat-card *ngIf="!isLoading">
+        <div class="logo-brand">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg"
+            alt=""
+          />
+        </div>
+        <form #loginForm="ngForm">
+          <mat-form-field>
+            <input
+              matInput
+              type="email"
+              name="email"
+              ngModel
+              placeholder="E-mail"
+              #emailInput="ngModel"
+              required
+              email
+            />
+            <mat-error *ngIf="emailInput.invalid"
+              >Please enter a valid e-mail</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field>
+            <input
+              type="password"
+              name="password"
+              ngModel
+              #passwordInput="ngModel"
+              matInput
+              placeholder="Password"
+              required
+            />
+            <mat-error *ngIf="passwordInput"
+              >Please enter a valid password</mat-error
+            >
+          </mat-form-field>
+
+          <div class="forgot-pass">
+            <a href="">Don't have an account?</a>
+          </div>
+          <button
+            mat-flat-button
+            color="warn"
+            type="submit"
+            class="form-button"
+          >
+            Login
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  <div class="first-column">
+    <div class="content-col-1"></div>
+  </div>
 </div>

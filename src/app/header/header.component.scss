@@ -37,10 +37,13 @@
   color: #ffffff;
   background-color: rgb(107, 161, 241);
 }
-
+.icon-adjust {
+  position: relative;
+  top: 0.3rem;
+}
 .sidenav .closebtn {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 10px;
   font-size: 27px;
   cursor: pointer;
@@ -54,7 +57,7 @@
   position: absolute;
 
   padding: 0;
-
+  padding-top: 1px;
   right: 6px;
 }
 .openNav {

@@ -1,4 +1,7 @@
-<mat-toolbar class="toolbar" *ngIf="this.router.url != '/login'">
+<mat-toolbar
+  class="toolbar"
+  *ngIf="this.router.url != '/login' && this.router.url != '/signup'"
+>
   <button
     mat-icon-button
     class="example-icon"
@@ -21,18 +24,18 @@
   </a>
 
   <a routerLink="/create" (click)="toggleMenu()"
-    ><mat-icon>add_circle_outline</mat-icon>Create</a
+    ><mat-icon class="icon-adjust">add_circle_outline</mat-icon>Create</a
   >
 
   <a routerLink="/" (click)="toggleMenu()"
-    ><mat-icon>post_add</mat-icon>Posts</a
+    ><mat-icon class="icon-adjust">post_add</mat-icon>Posts</a
   >
 
   <a routerLink="/signup" (click)="toggleMenu()"
-    ><mat-icon>app_registration</mat-icon>Sign up</a
+    ><mat-icon class="icon-adjust">app_registration</mat-icon>Sign up</a
   >
 
   <a routerLink="/login" (click)="toggleMenu()"
-    ><mat-icon>login</mat-icon>Sign in</a
+    ><mat-icon class="icon-adjust">login</mat-icon>Sign in</a
   >
 </div>
