@@ -1,0 +1,21 @@
+.first-column {
+  background-image: none;
+}
+.content-col-1 {
+  background-color: #f0efef;
+  color: #fff;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.content-col-1 img {
+  padding-top: 0px;
+  width: 70%;
+  min-width: 450px;
+}
+
+.title {
+  color: rgb(59, 59, 59);
+  width: 60%;
+  margin: 0 auto;
+}

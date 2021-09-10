@@ -6,6 +6,7 @@
       <div class="form-title">
         <h2>Register now</h2>
       </div>
+
       <mat-card *ngIf="!isLoading">
         <div class="logo-brand">
           <img
@@ -46,7 +47,7 @@
           </mat-form-field>
 
           <div class="forgot-pass">
-            <a href="">Don't have an account?</a>
+            <a routerLink="/login">Already registered? Click here</a>
           </div>
           <button
             mat-flat-button
@@ -54,13 +55,27 @@
             type="submit"
             class="form-button"
           >
-            Login
+            Sign Up
           </button>
         </form>
       </mat-card>
     </div>
   </div>
+
   <div class="first-column">
-    <div class="content-col-1"></div>
+    <div class="content-col-1">
+      <img
+        src="https://i.pinimg.com/originals/a2/70/d2/a270d270d5ca184422cf980475b99e24.gif"
+        alt="Website"
+      />
+      <div class="title">
+        <h2>Manage your Posts</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta libero
+          reiciendis earum blanditiis sapiente maiores tenetur id, nemo
+          adipisci.
+        </p>
+      </div>
+    </div>
   </div>
 </div>

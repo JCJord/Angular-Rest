@@ -1,1 +1,25 @@
-/* No CSS *//*# sourceMappingURL=signup.component.css.map */
+.first-column {
+  background-image: none;
+}
+
+.content-col-1 {
+  background-color: #f0efef;
+  color: #fff;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: center;
+}
+
+.content-col-1 img {
+  padding-top: 0px;
+  width: 70%;
+  min-width: 450px;
+}
+
+.title {
+  color: #3b3b3b;
+  width: 60%;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=signup.component.css.map */
