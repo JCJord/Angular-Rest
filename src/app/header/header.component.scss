@@ -1,9 +1,13 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+.header-logo {
+  width: 50px;
+}
 .toolbar {
-  background-color: rgb(31, 31, 31);
-  color: #ffffff;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(187, 187, 187);
+  color: #000000;
 }
 .sidenav {
   height: 100%;
@@ -68,13 +72,6 @@
 }
 mat-icon {
   padding-right: 10px;
-}
-.header-btn {
-  background-color: transparent;
-  color: #ffff;
-  padding: 0px 10px;
-  &:hover {
-  }
 }
 
 .logo-box {

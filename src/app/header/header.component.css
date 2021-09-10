@@ -4,9 +4,14 @@
           flex: 1 1 auto;
 }
 
+.header-logo {
+  width: 50px;
+}
+
 .toolbar {
-  background-color: #1f1f1f;
-  color: #ffffff;
+  background-color: white;
+  border-bottom: 1px solid #bbbbbb;
+  color: #000000;
 }
 
 .sidenav {
@@ -77,12 +82,6 @@
 
 mat-icon {
   padding-right: 10px;
-}
-
-.header-btn {
-  background-color: transparent;
-  color: #ffff;
-  padding: 0px 10px;
 }
 
 .logo-box {
