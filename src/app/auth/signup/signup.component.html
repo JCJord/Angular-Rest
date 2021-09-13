@@ -14,7 +14,7 @@
             alt=""
           />
         </div>
-        <form #loginForm="ngForm">
+        <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
           <mat-form-field>
             <input
               matInput
