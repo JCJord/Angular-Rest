@@ -80,8 +80,13 @@ mat-card {
 
 .form-title {
   margin: 0 auto;
-  width: 61%;
+  width: 64%;
+  border-left: 4px solid #0070cc;
   max-width: 570px;
+}
+
+.form-title h2 {
+  margin-left: 10px;
 }
 
 .logo-brand {
