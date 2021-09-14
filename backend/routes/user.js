@@ -39,8 +39,8 @@ router.post("/login", (req, res, next) => {
       fetchedUser = user;
       return bcrypt.compare(req.body.password, user.password);
     })
-    .then((res) => {
-      if (!res) {
+    .then((result) => {
+      if (!result) {
         return res.status(401).json({
           message: "auth failed",
         });
@@ -50,7 +50,9 @@ router.post("/login", (req, res, next) => {
         "!$@%&SS¥sz2b→ñÇ▀╞┴bi@Üìó▄Nu7,B!▬♂mX▌",
         { expiresIn: "3h" }
       );
-      console.log(token);
+      res.status(200).json({
+        token: token,
+      });
     })
     .catch((err) => {
       console.log(err);

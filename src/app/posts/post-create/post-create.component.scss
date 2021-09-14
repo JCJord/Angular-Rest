@@ -1,6 +1,8 @@
 mat-form-field {
   width: 100%;
+  padding-bottom: 5px;
 }
+
 @mixin card-space($pixel) {
   margin-top: $pixel;
 }
