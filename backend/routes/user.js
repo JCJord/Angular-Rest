@@ -27,7 +27,7 @@ router.post("", (req, res) => {
       });
   });
 });
-router.post("/login", (req, res, next) => {
+router.post("/login", (req, res) => {
   let fetchedUser;
   User.findOne({ email: req.body.email })
     .then((user) => {
@@ -45,11 +45,13 @@ router.post("/login", (req, res, next) => {
           message: "auth failed",
         });
       }
-      const token = jwt.sign(
+
+      let token = jwt.sign(
         { email: fetchedUser.email, userId: fetchedUser._id },
-        "!$@%&SS¥sz2b→ñÇ▀╞┴bi@Üìó▄Nu7,B!▬♂mX▌",
-        { expiresIn: "3h" }
+        "test_page_now",
+        { expiresIn: "1h" }
       );
+
       res.status(200).json({
         token: token,
       });

@@ -2,10 +2,14 @@ const jwt = require("jsonwebtoken");
 
 module.exports = (req, res, next) => {
   try {
-    const token = req.headers.authorization.split(" ")[1];
-    jwt.verify(token, "!$@%&SS¥sz2b→ñÇ▀╞┴bi@Üìó▄Nu7,B!▬♂mX▌");
+    let token = req.headers.authorization.split(" ")[1];
+    jwt.verify(token, "test_page_now");
     next();
   } catch (err) {
-    res.stats(401).json({ message: "fail authentication" });
+    console.log(req.headers);
+    console.log(token);
+
+    console.log(err);
+    res.status(401).json({ message: err });
   }
 };

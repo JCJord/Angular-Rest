@@ -11,7 +11,8 @@ import { PostList } from './post-list/post-list.component'
 import { LoginComponent } from './auth/login/login.component'
 import { SignUpComponent } from './auth/signup/signup.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { AuthInterceptor } from './auth/auth-interceptor'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,13 @@ import { HttpClientModule } from '@angular/common/http'
     MaterialModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
