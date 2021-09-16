@@ -20,28 +20,42 @@
     />
   </span>
   <span class="example-spacer"></span>
-  <button mat-flat-button class="header-btn">
-    <mat-icon>login</mat-icon> SIGN IN
-  </button>
+  <a class="sign-in-icon" routerLink="/login">
+    <button *ngIf="!userIsAuthenticated" mat-flat-button class="header-btn">
+      <mat-icon>login</mat-icon> SIGN IN
+    </button></a
+  >
+  <a class="sign-in-icon" routerLink="/login">
+    <button
+      *ngIf="this.userIsAuthenticated"
+      mat-flat-button
+      (click)="onLogout()"
+      class="header-btn"
+    >
+      <mat-icon>logout</mat-icon> LOG OUT
+    </button></a
+  >
 </mat-toolbar>
 <div id="mySidenav" [ngClass]="status ? 'openNav' : 'closeNav'" class="sidenav">
   <a (click)="toggleMenu()" class="closebtn"
     ><mat-icon>arrow_back</mat-icon>
   </a>
 
-  <a routerLink="/create" (click)="toggleMenu()"
-    ><mat-icon class="icon-adjust">add_circle_outline</mat-icon>Create</a
+  <a *ngIf="userIsAuthenticated" routerLink="/create" (click)="toggleMenu()"
+    ><mat-icon class="icon-adjust side-align">add_circle_outline</mat-icon
+    >Create</a
   >
 
   <a routerLink="/" (click)="toggleMenu()"
-    ><mat-icon class="icon-adjust">post_add</mat-icon>Posts</a
+    ><mat-icon class="icon-adjust side-align">post_add</mat-icon>Posts</a
   >
 
-  <a routerLink="/signup" (click)="toggleMenu()"
-    ><mat-icon class="icon-adjust">app_registration</mat-icon>Sign up</a
+  <a *ngIf="!userIsAuthenticated" routerLink="/signup" (click)="toggleMenu()"
+    ><mat-icon class="icon-adjust side-align">app_registration</mat-icon>Sign
+    up</a
   >
 
-  <a routerLink="/login" (click)="toggleMenu()"
-    ><mat-icon class="icon-adjust">login</mat-icon>Sign in</a
+  <a *ngIf="!userIsAuthenticated" routerLink="/login" (click)="toggleMenu()"
+    ><mat-icon class="icon-adjust side-align">login</mat-icon>Sign in</a
   >
 </div>

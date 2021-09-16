@@ -80,7 +80,7 @@
   width: 0px;
 }
 
-mat-icon {
+.side-align {
   padding-right: 10px;
 }
 
@@ -90,6 +90,16 @@ mat-icon {
   left: 50px;
   top: 0;
   margin: 0 auto;
+}
+
+.sign-in-icon {
+  text-decoration: none;
+  color: #000000;
+}
+
+.sign-in-icon mat-icon {
+  position: relative;
+  right: 6px;
 }
 
 @media screen and (max-height: 450px) {

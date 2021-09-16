@@ -1,5 +1,3 @@
-<mat-spinner *ngIf="isLoading"></mat-spinner>
-
 <div class="form-container">
   <div class="second-column">
     <div class="content-col-2">
@@ -8,6 +6,7 @@
       </div>
 
       <mat-card *ngIf="!isLoading">
+        <mat-spinner *ngIf="isLoading"></mat-spinner>
         <div class="logo-brand">
           <img
             src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg"
@@ -54,9 +53,11 @@
             color="warn"
             type="submit"
             class="form-button"
+            *ngIf="!isLoading"
           >
             Sign Up
           </button>
+          <mat-spinner *ngIf="isLoading"></mat-spinner>
         </form>
       </mat-card>
     </div>
