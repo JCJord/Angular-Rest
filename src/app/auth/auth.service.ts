@@ -11,7 +11,7 @@ import { AuthData } from './auth.data'
 export class AuthService {
   private isAuthenticated = false
   private authStatusListener = new Subject<boolean>()
-
+  private tokenTimer!: NodeJS.Timer
   constructor (private http: HttpClient, private router: Router) {}
 
   createUser (email: string, password: string) {
@@ -34,10 +34,18 @@ export class AuthService {
   login (email: string, password: string) {
     const authData: AuthData = { email: email, password: password }
     this.http
-      .post<{ token: string }>('http://localhost:3000/api/user/login', authData)
+      .post<{ token: string; expiresIn: number }>(
+        'http://localhost:3000/api/user/login',
+        authData
+      )
       .subscribe(response => {
         const token = response.token
         if (token) {
+          const expiresInDuration = response.expiresIn
+          console.log(expiresInDuration)
+          this.tokenTimer = setTimeout(() => {
+            this.logout()
+          }, expiresInDuration * 100)
           this.isAuthenticated = true
           localStorage.setItem('token', token)
 
@@ -50,5 +58,6 @@ export class AuthService {
     this.isAuthenticated = false
     this.authStatusListener.next(false)
     this.router.navigate(['/'])
+    clearTimeout(this.tokenTimer)
   }
 }
