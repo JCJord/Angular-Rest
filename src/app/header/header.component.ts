@@ -20,9 +20,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   onLogout () {
     this.authService.logout
+    this.clearAuthDate()
   }
 
+  private clearAuthDate () {
+    localStorage.removeItem('token')
+    localStorage.removeItem('expiration')
+  }
   ngOnInit () {
+    this.userIsAuthenticated = this.authService.getIsAuth()
+
     this.authListenerSubs = this.authService
       .getAuthStatusListener()
       .subscribe(isAuthenticated => {
