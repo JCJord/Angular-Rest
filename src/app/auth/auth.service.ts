@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http'
 import { ThrowStmt } from '@angular/compiler'
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast'
 import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
 import { Subject } from 'rxjs'
 import { runInThisContext } from 'vm'
+import { HeaderComponent } from '../header/header.component'
 
 import { AuthData } from './auth.data'
 
@@ -17,7 +19,11 @@ export class AuthService {
   private tokenTimer!: NodeJS.Timer
   private userId!: any
 
-  constructor (private http: HttpClient, private router: Router) {}
+  constructor (
+    private http: HttpClient,
+    private router: Router,
+    private headerComponent: HeaderComponent
+  ) {}
 
   createUser (email: string, password: string) {
     const authData: AuthData = { email: email, password: password }
@@ -99,6 +105,7 @@ export class AuthService {
     this.isAuthenticated = false
     this.authStatusListener.next(false)
     this.userId = null
+    this.headerComponent.clearAuthDate()
     this.router.navigate(['/'])
   }
   private saveAuthData (token: string, expirationDate: Date, userId: string) {
