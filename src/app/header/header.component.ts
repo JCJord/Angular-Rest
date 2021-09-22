@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private clearAuthDate () {
     localStorage.removeItem('token')
     localStorage.removeItem('expiration')
+    localStorage.removeItem('userId')
   }
   ngOnInit () {
     this.userIsAuthenticated = this.authService.getIsAuth()
