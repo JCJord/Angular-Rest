@@ -37,7 +37,9 @@ router.post(
       title: req.body.title,
       content: req.body.content,
       imagePath: url + "/images/" + req.file.filename,
+      creator: req.userData.userId,
     });
+
     post.save().then((createdPost) => {
       res.status(201).json({
         post: {
@@ -84,16 +86,23 @@ router.put(
       const url = req.protocol + "://" + req.get("host");
       imagePath = url + "/images/" + req.file.filename;
     }
-    console.log(req.file);
+
     const post = new Post({
       _id: req.body.id,
       title: req.body.title,
       content: req.body.content,
     });
-    console.log(post);
-    Post.updateOne({ _id: req.params.id }, post).then((postData) => {
-      console.log(postData);
-      res.status(200);
+
+    Post.updateOne(
+      { _id: req.params.id, creator: req.userData.userId },
+      post
+    ).then((postData) => {
+      console.log(postData.nModified);
+      if (postData.nModified > 0) {
+        return res.status(200).json({ message: " Successfully authorized" });
+      } else {
+        return res.status(401).json({ message: "Not Authorized" });
+      }
     });
   }
 );
@@ -109,11 +118,15 @@ router.get("/:id", (req, res) => {
 });
 
 router.delete("/:id", checkAuth, async (req, res) => {
-  Post.deleteOne({ _id: req.params.id }).then((result) => {
-    console.log(result);
-    console.log(req.params.id);
-    res.status(200).json({});
-  });
+  Post.deleteOne({ _id: req.params.id, creator: req.userData.userId }).then(
+    (result) => {
+      if (result.nModified > 0) {
+        return res.status(200).json({ message: " Deletion authorized" });
+      } else {
+        return res.status(401).json({ message: "Not Authorized" });
+      }
+    }
+  );
 });
 
 module.exports = router;
