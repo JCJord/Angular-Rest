@@ -8,7 +8,6 @@ import { AuthService } from '../auth/auth.service'
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-@Injectable()
 export class HeaderComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false
   private authListenerSubs!: Subscription
