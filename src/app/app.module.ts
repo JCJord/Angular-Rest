@@ -13,6 +13,7 @@ import { SignUpComponent } from './auth/signup/signup.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthInterceptor } from './auth/auth-interceptor'
+import { ErrorInterceptor } from './error-interceptor'
 
 @NgModule({
   declarations: [
@@ -36,6 +37,11 @@ import { AuthInterceptor } from './auth/auth-interceptor'
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true
     }
   ],

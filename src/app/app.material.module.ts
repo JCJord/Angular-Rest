@@ -11,6 +11,7 @@ import { MatExpansionModule } from '@angular/material/expansion'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatGridListModule } from '@angular/material/grid-list'
+import { MatDialogModule } from '@angular/material/dialog'
 
 @NgModule({
   exports: [
@@ -25,7 +26,8 @@ import { MatGridListModule } from '@angular/material/grid-list'
     MatExpansionModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule {}
