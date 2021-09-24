@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const user = require("../models/user");
 
-router.post("", (req, res) => {
+router.post("/signup", (req, res) => {
   bcrypt.hash(req.body.password, 10).then((hash) => {
     const user = new User({
       email: req.body.email,
@@ -21,9 +21,9 @@ router.post("", (req, res) => {
         });
       })
       .catch((err) => {
-        res.status(500).json({
-          error: err,
-        });
+        res
+          .status(500)
+          .json({ message: "Invalid Authentication credentials!" });
       });
   });
 });
@@ -42,7 +42,7 @@ router.post("/login", (req, res) => {
     .then((result) => {
       if (!result) {
         return res.status(401).json({
-          message: "auth failed",
+          message: "Invalid authentication credentials",
         });
       }
 

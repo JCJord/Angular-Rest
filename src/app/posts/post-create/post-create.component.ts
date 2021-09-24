@@ -1,6 +1,9 @@
-import { Component, Injectable, OnInit } from '@angular/core'
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast'
+import { Component, Injectable, OnDestroy, OnInit } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, ParamMap, Router } from '@angular/router'
+import { Subscription } from 'rxjs'
+import { AuthService } from 'src/app/auth/auth.service'
 import { Post } from '../post.model'
 import { PostsService } from '../posts.services'
 import { mimeType } from './mime-type.validator'
@@ -9,17 +12,20 @@ import { mimeType } from './mime-type.validator'
   templateUrl: './post-create.component.html',
   styleUrls: ['./post-create.component.css']
 })
-export class PostCreateComponent implements OnInit {
+export class PostCreateComponent implements OnInit, OnDestroy {
   private mode = 'create'
   private postId
+  private authStatusSub!: Subscription
   post
   isLoading = false
   imagePreview
   form!: FormGroup
+
   constructor (
     public postsService: PostsService,
     public route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private authService: AuthService
   ) {}
 
   onImagePick (event: Event) {
@@ -62,6 +68,9 @@ export class PostCreateComponent implements OnInit {
     }
   }
   ngOnInit () {
+    this.authService.getAuthStatusListener().subscribe(authStatus => {
+      this.isLoading = false
+    })
     this.form = new FormGroup({
       title: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(3)]
@@ -99,5 +108,8 @@ export class PostCreateComponent implements OnInit {
         this.postId = null
       }
     })
+  }
+  ngOnDestroy () {
+    this.authStatusSub.unsubscribe()
   }
 }
