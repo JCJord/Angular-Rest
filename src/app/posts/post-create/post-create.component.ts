@@ -109,7 +109,5 @@ export class PostCreateComponent implements OnInit, OnDestroy {
       }
     })
   }
-  ngOnDestroy () {
-    this.authStatusSub.unsubscribe()
-  }
+  ngOnDestroy () {}
 }

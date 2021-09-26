@@ -1,0 +1,25 @@
+@mixin card-space($top, $bottom) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+.panel-container {
+  @include card-space(20px, 20px);
+  margin-bottom: 20px;
+}
+
+.empty-msg {
+  text-align: center;
+}
+
+mat-spinner {
+  margin: 0 auto !important;
+}
+
+.post-image {
+  width: 80%;
+}
+
+.post-image img {
+  max-width: 400px;
+}
