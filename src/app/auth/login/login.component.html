@@ -15,8 +15,10 @@
             alt=""
           />
         </div>
-        <div class="spinner-box"> <mat-spinner  *ngIf="isLoading" [diameter]="60"></mat-spinner></div>
-        
+        <div class="spinner-box">
+          <mat-spinner *ngIf="isLoading" [diameter]="60"></mat-spinner>
+        </div>
+
         <form
           *ngIf="!isLoading"
           (submit)="onLogin(loginForm)"
@@ -54,7 +56,7 @@
           </mat-form-field>
 
           <div class="forgot-pass">
-            <a routerLink="/signup">Don't have an account?</a>
+            <a routerLink="/auth/signup">Don't have an account?</a>
           </div>
           <button
             mat-flat-button
@@ -65,7 +67,6 @@
           >
             Login
           </button>
-          
         </form>
       </mat-card>
     </div>
