@@ -7,7 +7,7 @@ const path = require("path");
 
 mongoose
   .connect(
-    "mongodb+srv://jcjord:5qh1kLnIXDmuWLnp@cluster0.1enob.mongodb.net/angular-app?retryWrites=true&w=majority"
+    "mongodb+srv://jcjord:"+process.env.MONGO_ATLAS_PW+"@cluster0.1enob.mongodb.net/angular-app?retryWrites=true&w=majority"
   )
   .then(() => {
     console.log("connected to database");

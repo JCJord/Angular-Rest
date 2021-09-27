@@ -1,0 +1,6 @@
+{
+    "env":{
+        "MONGO_ATLAS_PW": "5qh1kLnIXDmuWLnp",
+        "JWT_KEY": "test_page_now"
+    }
+}
