@@ -1,6 +1,6 @@
 <mat-toolbar
   class="toolbar"
-  *ngIf="this.router.url != '/login' && this.router.url != '/signup'"
+  *ngIf="this.router.url != '/auth/login' && this.router.url != '/auth/signup'"
 >
   <button
     mat-icon-button
@@ -20,12 +20,12 @@
     />
   </span>
   <span class="example-spacer"></span>
-  <a class="sign-in-icon" routerLink="/login">
+  <a class="sign-in-icon" routerLink="auth/login">
     <button *ngIf="!userIsAuthenticated" mat-flat-button class="header-btn">
       <mat-icon>login</mat-icon> SIGN IN
     </button></a
   >
-  <a class="sign-in-icon" routerLink="/login">
+  <a class="sign-in-icon" routerLink="/">
     <button
       *ngIf="this.userIsAuthenticated"
       mat-flat-button
@@ -50,12 +50,15 @@
     ><mat-icon class="icon-adjust side-align">post_add</mat-icon>Posts</a
   >
 
-  <a *ngIf="!userIsAuthenticated" routerLink="/signup" (click)="toggleMenu()"
+  <a
+    *ngIf="!userIsAuthenticated"
+    routerLink="auth/signup"
+    (click)="toggleMenu()"
     ><mat-icon class="icon-adjust side-align">app_registration</mat-icon>Sign
     up</a
   >
 
-  <a *ngIf="!userIsAuthenticated" routerLink="/login" (click)="toggleMenu()"
+  <a *ngIf="!userIsAuthenticated" routerLink="auth/login" (click)="toggleMenu()"
     ><mat-icon class="icon-adjust side-align">login</mat-icon>Sign in</a
   >
 </div>

@@ -107,8 +107,6 @@ export class AuthService {
     this.isAuthenticated = false
     this.authStatusListener.next(false)
     this.userId = null
-
-    this.router.navigate(['/'])
   }
   private saveAuthData (token: string, expirationDate: Date, userId: string) {
     localStorage.setItem('token', token)
