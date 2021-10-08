@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrl:
-    'https://angularrest-env.eba-wzugdjp9.sa-east-1.elasticbeanstalk.com/api'
+    'http://angularrest-env.eba-wzugdjp9.sa-east-1.elasticbeanstalk.com/api'
 }
 
 /*
